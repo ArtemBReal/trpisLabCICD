@@ -2,4 +2,9 @@ name: trpisLabCICD
 
 on:
   push:
-  
+    branches: [master]
+
+jobs:
+  someaction:
+    name: doing some job
+    runs-on: windows-latest
