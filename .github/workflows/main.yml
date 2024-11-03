@@ -33,4 +33,7 @@ jobs:
         continue-on-error: true  
       - name: Testing code
         run: |  
+          calculator_test.py
+      - name: Testing code with pytest
+        run: |  
           pytest calculator_test.py
