@@ -8,7 +8,7 @@ permissions:
 
 jobs:
     autoGenerateLog:
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
       steps:
       # Использование действия checkout для клонирования репозитория  
         - uses: actions/checkout@v2  
