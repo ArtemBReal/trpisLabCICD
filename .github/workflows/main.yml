@@ -32,10 +32,12 @@ jobs:
         continue-on-error: true  
       - name: Testing code
         run: |  
-          python calculator_test.py
+          python calculator_code/calculator_test.py
       - name: Testing code with pytest and coverage
         run: |  
-          coverage run -m  pytest calculator_test.py  
+          coverage run -m  pytest calculator_code/calculator_test.py 
       - name: Generate Coverage Report  
         run: |  
           coverage report -m
+      - name: Create report file
+        run: date +%s > report.txt
