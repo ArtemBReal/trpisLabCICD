@@ -22,8 +22,9 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     
-    autoGenerateLog:
-      steps:
+  autoGenerateLog:
+    runs-on: ubuntu-latest
+    steps:
       # Использование действия checkout для клонирования репозитория  
         - uses: actions/checkout@v2  
       # Выкачивание всей истории коммитов, необходимо для корректной работы многих инструментов генерации changelog
