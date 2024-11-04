@@ -35,19 +35,19 @@ jobs:
             git commit -m "Обновление CHANGELOG.md"
             git push https://github.com/${{ github.repository }}.git HEAD:release  
 
-  automerge:
-    runs-on: ubuntu-latest
+    automerge:
+      runs-on: ubuntu-latest
     #if: ${{ github.actor == 'ArtemBReal' }}
-    steps:
-      - name: Approve a PR
-        run: gh pr review --approve "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Enable auto-merge for Development PRs
-        run: gh pr merge --auto --rebase "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      steps:
+        - name: Approve a PR
+          run: gh pr review --approve "$PR_URL"
+          env:
+            PR_URL: ${{github.event.pull_request.html_url}}
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        - name: Enable auto-merge for Development PRs
+          run: gh pr merge --auto --rebase "$PR_URL"
+          env:
+            PR_URL: ${{github.event.pull_request.html_url}}
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     
 
