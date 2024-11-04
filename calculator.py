@@ -12,4 +12,6 @@ def calculate(num1, num2, operation):
             raise TypeError("Деление на ноль запрещено")
     elif operation == '*':
         result = num1 * num2
+    elif operation == '^':
+        result = num1 * num1
     return result
