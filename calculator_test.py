@@ -8,3 +8,4 @@ def test_calculate_sub_add():
     with pytest.raises(TypeError):  
         calculate(2, 0, '/')
     assert calculate(2, 1, '*') == 2
+    assert calculate(2, 1, '^') == 4
