@@ -2,12 +2,12 @@ name: trpisLabCICD
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  first-job:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+  #first-job:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+  #    - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+  #    - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
   
   
   build:  
@@ -26,14 +26,16 @@ jobs:
         run: |  
           python -m pip install --upgrade pip
           pip install pytest
-      - name: Lint with Ruff  
-        run: |  
+          pip install coverage
           pip install ruff  
           ruff --format=github --target-version=py310 .  
         continue-on-error: true  
       - name: Testing code
         run: |  
           python calculator_test.py
-      - name: Testing code with pytest
+      - name: Testing code with pytest and coverage
         run: |  
-          pytest calculator_test.py
+          coverage run -m  pytest calculator_test.py  
+      - name: Generate Coverage Report  
+        run: |  
+          coverage report -m
