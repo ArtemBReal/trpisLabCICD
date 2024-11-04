@@ -39,9 +39,5 @@ jobs:
       - name: Generate Coverage Report  
         run: |  
           coverage report -m
-<<<<<<< HEAD
       - name: Update report file
-=======
-      - name: Create report file
->>>>>>> 27d37b7e31b4208f31a7a28f51bfea9dd9e7e02d
         run: date +%s > report.txt
