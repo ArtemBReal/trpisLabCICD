@@ -9,7 +9,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'ArtemBReal' }}
+    #if: ${{ github.actor == 'ArtemBReal' }}
     steps:
       - name: Approve a PR
         run: gh pr review --approve "$PR_URL"
